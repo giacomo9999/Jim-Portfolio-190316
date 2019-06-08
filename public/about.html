@@ -5,47 +5,58 @@
     <meta name="viewport" content="width=device-width" />
     <title>James W. Gary</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Niramit:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700,700i&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.0/dist/semantic.min.css"
-    />
+
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="media-queries.css" rel="stylesheet" type="text/css" />
   </head>
 
   <body>
-    <div class="ui container">
+    <div class="header">
       <img src="images/JGary_logo.svg" />
-      <br />
+      <div class="spacer10"></div>
     </div>
 
-    <div class="ui four column middle aligned center aligned grid">
-      <div class="column">
-        <div class="ui stacked segment">
-          <h2 class="ui centered dividing header">About Me</h2>
+    <div class="container-centerer">
+      <div class="container" style="grid-template-columns: 320px;">
+        <div class="about_me_project" style="height:325px;">
+          <h1 style="text-align:center;">
+            About Me
+          </h1>
           <p>
-            I write code. For twenty-five years, I've also been one of America's
+            I build and design web apps. <br />
+            <br />For twenty-five years, I've also been one of America's
             best-loved editorial illustrators. (My portfolio for that is at
             <a href="http://www.GiacomoMarchesi.com">GiacomoMarchesi.com</a>).
           </p>
-          <h3>Tel: 646.549.0648</h3>
-          <input
-            type="button"
-            href="mailto:gmarchesi888@gmail.com"
-            class="jg_button"
-            value="E-mail me"
-            onclick="window.location.href='mailto:gmarchesi888@gmail.com'"
-            style="width: 140px"
-            ;
-          />
+          <div class="phone_number" style="text-align:center;"><h3>Tel: 646.549.0648</h3></div>
 
-          <a href="images/J_Gary_Resumé_190401a.pdf">
-            <button class="jg_button" style="width: 140px">View Resumé</button>
-          </a>
-          <br />
-          <h2><a href="./index.html">Back To Index</a></h2>
+          <div class="project_buttons" style="margin: 0 auto;">
+            <input
+              type="button"
+              href="mailto:gmarchesi888@gmail.com"
+              class="jg_button"
+              value="E-mail me"
+              onclick="window.location.href='mailto:gmarchesi888@gmail.com'"
+              style="width: 90px"
+              ;
+            />
+            <a href="images/J_Gary_CV_190430.pdf">
+              <button class="jg_button" style="width: 140px">
+                View Resumé
+              </button>
+            </a>
+          </div>
+
+          <div class="index-button" style="margin: 0 auto;">
+            <a href="./index.html">
+              <button class="jg_button" style="width: 140px;">
+                Back To Index
+              </button>
+            </a>
+          </div>
         </div>
       </div>
     </div>
