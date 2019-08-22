@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { CSSTransitionGroup } from "react-transition-group";
 import Project from "./Project";
 
 class ProjectsList extends Component {
@@ -8,14 +9,20 @@ class ProjectsList extends Component {
       return <Project key={index} projData={entry} />;
     });
     return (
-      <div className="container-inner dark">
-        <h1 className="light">Apps I've Built</h1>
-        {projectsDisplay}
-        <div className="spacer5" />
-        <button className="jg_button" onClick={this.props.closePanel}>
-          Close
-        </button>
-      </div>
+      <CSSTransitionGroup
+        transitionName="std-transition"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+      >
+        <div className="container-inner dark">
+          <h1 className="light">Apps I've Built</h1>
+          {projectsDisplay}
+          <div className="spacer5" />
+          <button className="jg_button" onClick={this.props.closePanel}>
+            Close
+          </button>
+        </div>
+      </CSSTransitionGroup>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { CSSTransitionGroup } from "react-transition-group";
 import * as emailjs from "emailjs-com";
 
 class ContactForm extends Component {
@@ -46,45 +47,51 @@ class ContactForm extends Component {
   render() {
     const { name, email, subject, message } = this.state;
     return (
-      <div className="container-inner">
-        <form className="h-form" onSubmit={this.handleSubmit}>
-          <label className="h-label">Name</label>
-          <input
-            className="h-input"
-            type="text"
-            name="name"
-            value={name}
-            onChange={this.handleChange}
-          />
-          <label className="h-label">E-Mail</label>
-          <input
-            className="h-input"
-            type="text"
-            name="email"
-            value={email}
-            onChange={this.handleChange}
-          />
-          <label className="h-label">Subject</label>
-          <input
-            className="h-input"
-            type="text"
-            name="subject"
-            value={subject}
-            onChange={this.handleChange}
-          />
-          <label className="h-label">Message</label>
-          <textarea
-            className="h-textarea"
-            type="textarea"
-            name="message"
-            value={message}
-            onChange={this.handleChange}
-          />
-          <div className="spacer5" />
-          <button type="submit">Submit</button>
-          <button onClick={this.props.closeEmailPanel}>Cancel</button>
-        </form>
-      </div>
+      <CSSTransitionGroup
+        transitionName="std-transition"
+        transitionAppear={true}
+        transitionAppearTimeout={500}
+      >
+        <div className="container-inner">
+          <form className="h-form" onSubmit={this.handleSubmit}>
+            <label className="h-label">Name</label>
+            <input
+              className="h-input"
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.handleChange}
+            />
+            <label className="h-label">E-Mail</label>
+            <input
+              className="h-input"
+              type="text"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+            />
+            <label className="h-label">Subject</label>
+            <input
+              className="h-input"
+              type="text"
+              name="subject"
+              value={subject}
+              onChange={this.handleChange}
+            />
+            <label className="h-label">Message</label>
+            <textarea
+              className="h-textarea"
+              type="textarea"
+              name="message"
+              value={message}
+              onChange={this.handleChange}
+            />
+            <div className="spacer5" />
+            <button type="submit">Submit</button>
+            <button onClick={this.props.closeEmailPanel}>Cancel</button>
+          </form>
+        </div>
+      </CSSTransitionGroup>
     );
   }
 }
