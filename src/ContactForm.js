@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CSSTransitionGroup } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import * as emailjs from "emailjs-com";
 
 class ContactForm extends Component {
@@ -47,10 +47,14 @@ class ContactForm extends Component {
   render() {
     const { name, email, subject, message } = this.state;
     return (
-      <CSSTransitionGroup
-        transitionName="std-transition"
-        transitionAppear={true}
-        transitionAppearTimeout={500}
+      <CSSTransition
+      in={this.props.isEmailPanelOpen}
+      timeout={400}
+      classNames="fade"
+      unmountOnExit
+      appear
+      // onEntered={this.switch}
+      // onExit={this.switch}
       >
         <div className="container-inner">
           <form className="h-form" onSubmit={this.handleSubmit}>
@@ -88,10 +92,10 @@ class ContactForm extends Component {
             />
             <div className="spacer5" />
             <button type="submit">Submit</button>
-            <button onClick={this.props.closeEmailPanel}>Cancel</button>
+            <button onClick={this.props.closeEmailPanel}>Close</button>
           </form>
         </div>
-      </CSSTransitionGroup>
+      </CSSTransition>
     );
   }
 }

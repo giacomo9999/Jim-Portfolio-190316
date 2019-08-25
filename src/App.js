@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CSSTransitionGroup } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import logo from "./JGary_logo.svg";
 import About from "./About";
 import ProjectsList from "./ProjectsList";
@@ -47,12 +47,12 @@ class App extends Component {
     projectsPanelOpen: false
   };
 
-  toggleAboutPanel = e => {
-    e.preventDefault();
+  toggleAboutPanel = () => {
+    // e.preventDefault();
     console.log("Toggling About Panel");
     this.setState({ aboutPanelOpen: !this.state.aboutPanelOpen });
   };
-  toggleProjectsPanel = e => {
+  toggleProjectsPanel = () => {
     this.setState({ projectsPanelOpen: !this.state.projectsPanelOpen });
   };
 
@@ -60,38 +60,32 @@ class App extends Component {
     const isAboutOpen = this.state.aboutPanelOpen;
     const isProjectsOpen = this.state.projectsPanelOpen;
     return (
-      <CSSTransitionGroup
-        transitionName="std-transition"
-        transitionAppear={true}
-        transitionAppearTimeout={500}
-      >
-        <div className="App">
-          <div className="header">
-            <img src={logo} className="logo" alt="logo" />
-          </div>
-
-          <div className="container-invisible">
-            {isAboutOpen ? (
-              <About closePanel={this.toggleAboutPanel} />
-            ) : (
-              <button className="big" onClick={this.toggleAboutPanel}>
-                About Me
-              </button>
-            )}
-            <div className="spacer10" />
-            {isProjectsOpen ? (
-              <ProjectsList
-                closePanel={this.toggleProjectsPanel}
-                projectList={this.state.projectList}
-              />
-            ) : (
-              <button className="big" onClick={this.toggleProjectsPanel}>
-                Apps I've Built
-              </button>
-            )}
-          </div>
+      <div className="App">
+        <div className="header">
+          <img src={logo} className="logo" alt="logo" />
         </div>
-      </CSSTransitionGroup>
+
+        <div className="container-invisible">
+          {isAboutOpen ? (
+            <About closePanel={this.toggleAboutPanel} panelOpen={isAboutOpen} />
+          ) : (
+            <button className="big" onClick={this.toggleAboutPanel}>
+              About Me
+            </button>
+          )}
+          <div className="spacer10" />
+          {isProjectsOpen ? (
+            <ProjectsList
+              closePanel={this.toggleProjectsPanel}
+              projectList={this.state.projectList}
+            />
+          ) : (
+            <button className="big" onClick={this.toggleProjectsPanel}>
+              Apps I've Built
+            </button>
+          )}
+        </div>
+      </div>
     );
   }
 }

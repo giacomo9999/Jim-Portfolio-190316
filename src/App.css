@@ -283,14 +283,26 @@ button:active {
   height: 50px;
 }
 
-/* CSS Transitions */
+/* Transitions */
 
-.std-transition-appear {
-  opacity: 0.01;
+/* This fires as soon as the element enters the DOM */
+.fade-enter,
+.fade-appear {
+  opacity: 0;
 }
-
-.std-transition-appear.std-transition-appear-active {
+/* This is where we can add the transition*/
+.fade-enter-active,
+.fade-appear-active {
   opacity: 1;
-  transition: opacity 0.5s ease-in;
+  transition: all 400ms;
 }
 
+/* This fires as soon as the this.state.showList is false */
+.fade-exit {
+  opacity: 1;
+}
+/* fires as element leaves the DOM*/
+.fade-exit-active {
+  opacity: 0;
+  transition: all 400ms;
+}

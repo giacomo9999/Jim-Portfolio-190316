@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { CSSTransitionGroup } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 import ContactForm from "./ContactForm";
 import Resume from "./J_Gary_CV_190430.pdf";
 
@@ -13,11 +13,16 @@ class About extends Component {
   render() {
     const inheritColor = { color: "inherit" };
     const isEmailOpen = this.state.emailPanelOpen;
+    console.log(this.props);
     return (
-      <CSSTransitionGroup
-        transitionName="std-transition"
-        transitionAppear={true}
-        transitionAppearTimeout={500}
+      <CSSTransition
+        in={this.props.panelOpen}
+        timeout={400}
+        classNames="fade"
+        unmountOnExit
+        appear
+        // onEntered={this.switch}
+        // onExit={this.switch}
       >
         <div className="container-inner dark">
           <h1 className="light">About Me</h1>
@@ -66,7 +71,10 @@ class About extends Component {
               </button>
             </div>
             {isEmailOpen ? (
-              <ContactForm closeEmailPanel={this.toggleEmailPanel} />
+              <ContactForm
+                closeEmailPanel={this.toggleEmailPanel}
+                isEmailPanelOpen={isEmailOpen}
+              />
             ) : (
               <div className="spacer10" />
             )}
@@ -77,7 +85,7 @@ class About extends Component {
             Close
           </button>
         </div>
-      </CSSTransitionGroup>
+      </CSSTransition>
     );
   }
 }
