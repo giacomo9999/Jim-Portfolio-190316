@@ -3,6 +3,7 @@ import { CSSTransition } from "react-transition-group";
 import logo from "./JGary_logo.svg";
 import About from "./About";
 import ProjectsList from "./ProjectsList";
+import DisplayComp from "./DisplayComp";
 import "./App.css";
 import "./media-queries.css";
 
@@ -44,21 +45,31 @@ class App extends Component {
       }
     ],
     aboutPanelOpen: false,
-    projectsPanelOpen: false
+    projectsPanelOpen: false,
+    displayCompOpen: false
   };
 
   toggleAboutPanel = () => {
-    // e.preventDefault();
     console.log("Toggling About Panel");
-    this.setState({ aboutPanelOpen: !this.state.aboutPanelOpen });
+    this.setState(prevState => ({ aboutPanelOpen: !prevState.aboutPanelOpen }));
   };
+
   toggleProjectsPanel = () => {
-    this.setState({ projectsPanelOpen: !this.state.projectsPanelOpen });
+    this.setState(prevState => ({
+      projectsPanelOpen: !prevState.projectsPanelOpen
+    }));
+  };
+
+  toggleDisplayComp = () => {
+    this.setState(prevState => ({
+      displayCompOpen: !prevState.displayCompOpen
+    }));
   };
 
   render() {
     const isAboutOpen = this.state.aboutPanelOpen;
     const isProjectsOpen = this.state.projectsPanelOpen;
+    const isDisplayCompOpen = this.state.displayCompOpen;
     return (
       <div className="App">
         <div className="header">
@@ -66,14 +77,30 @@ class App extends Component {
         </div>
 
         <div className="container-invisible">
+          {this.state.showList ? (
+            <div className="spacer5" />
+          ) : (
+            <button className="display" onClick={this.toggleDisplayComp}>
+              Toggle Element
+            </button>
+          )}
+          <DisplayComp
+            toggle={this.toggleDisplayComp}
+            showDisplayComp={isDisplayCompOpen}
+          />
+        </div>
+
+        <div className="container-invisible">
           {isAboutOpen ? (
-            <About closePanel={this.toggleAboutPanel} panelOpen={isAboutOpen} />
+            <About toggle={this.toggleAboutPanel} panelOpen={isAboutOpen} />
           ) : (
             <button className="big" onClick={this.toggleAboutPanel}>
               About Me
             </button>
           )}
+
           <div className="spacer10" />
+
           {isProjectsOpen ? (
             <ProjectsList
               closePanel={this.toggleProjectsPanel}
