@@ -17,7 +17,7 @@ class About extends Component {
     return (
       
       <CSSTransition
-        in={this.props.panelOpen}
+        in={this.props.showAboutPanel}
         timeout={400}
         classNames="fade"
         unmountOnExit

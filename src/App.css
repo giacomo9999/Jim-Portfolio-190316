@@ -294,7 +294,8 @@ button:active {
 .fade-enter-active,
 .fade-appear-active {
   opacity: 1;
-  transition: all 400ms;
+  /* transition: all 400ms; */
+  transition: opacity 500ms ease-in;
 }
 
 /* This fires as soon as the this.state.showList is false */
@@ -304,5 +305,6 @@ button:active {
 /* fires as element leaves the DOM*/
 .fade-exit-active {
   opacity: 0;
-  transition: all 400ms;
+  /* transition: all 400ms; */
+  transition: opacity 500ms ease-in;
 }

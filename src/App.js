@@ -50,7 +50,6 @@ class App extends Component {
   };
 
   toggleAboutPanel = () => {
-    console.log("Toggling About Panel");
     this.setState(prevState => ({ aboutPanelOpen: !prevState.aboutPanelOpen }));
   };
 
@@ -70,17 +69,18 @@ class App extends Component {
     const isAboutOpen = this.state.aboutPanelOpen;
     const isProjectsOpen = this.state.projectsPanelOpen;
     const isDisplayCompOpen = this.state.displayCompOpen;
+    console.log("this.state.showList:", this.state.showList);
     return (
       <div className="App">
         <div className="header">
           <img src={logo} className="logo" alt="logo" />
         </div>
 
-        <div className="container-invisible">
-          {this.state.showList ? (
+        {/* <div className="container-invisible">
+          {isDisplayCompOpen ? (
             <div className="spacer5" />
           ) : (
-            <button className="display" onClick={this.toggleDisplayComp}>
+            <button className="big" onClick={this.toggleDisplayComp}>
               Toggle Element
             </button>
           )}
@@ -88,29 +88,34 @@ class App extends Component {
             toggle={this.toggleDisplayComp}
             showDisplayComp={isDisplayCompOpen}
           />
-        </div>
+        </div> */}
 
         <div className="container-invisible">
           {isAboutOpen ? (
-            <About toggle={this.toggleAboutPanel} panelOpen={isAboutOpen} />
+            <div className="spacer5" />
           ) : (
             <button className="big" onClick={this.toggleAboutPanel}>
               About Me
             </button>
           )}
+          <About toggle={this.toggleAboutPanel} showAboutPanel={isAboutOpen} />
+        </div>
 
-          <div className="spacer10" />
+        <div className="spacer10" />
 
+        <div className="container-invisible">
           {isProjectsOpen ? (
-            <ProjectsList
-              closePanel={this.toggleProjectsPanel}
-              projectList={this.state.projectList}
-            />
+            <div className="spacer5" />
           ) : (
             <button className="big" onClick={this.toggleProjectsPanel}>
               Apps I've Built
             </button>
           )}
+          <ProjectsList
+            toggle={this.toggleProjectsPanel}
+            showProjectList={isProjectsOpen}
+            projectList={this.state.projectList}
+          />
         </div>
       </div>
     );

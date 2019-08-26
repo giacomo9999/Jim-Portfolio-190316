@@ -6,7 +6,7 @@ class DisplayComp extends Component {
     return (
       <CSSTransition
         in={this.props.showDisplayComp}
-        timeout={400}
+        timeout={500}
         classNames="fade"
         unmountOnExit
         appear
