@@ -71,14 +71,11 @@ class About extends Component {
                 </a>
               </button>
             </div>
-            {isEmailOpen ? (
-              <ContactForm
+            <ContactForm
                 closeEmailPanel={this.toggleEmailPanel}
                 isEmailPanelOpen={isEmailOpen}
               />
-            ) : (
-              <div className="spacer10" />
-            )}
+           
             <div className="spacer5" />
           </div>
           <div className="spacer5" />
