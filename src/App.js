@@ -27,14 +27,14 @@ class App extends Component {
         gitHub:
           "https://github.com/giacomo9999/Edgar-Allan-Poetry-Generator-190316"
       },
-      {
-        name: "Cubical Tic-Tac-Toe (n x n x n)",
-        description:
-          "Play tic-tac-toe on a 3D grid of any size you like (within reason, of course.)",
-        stack: "JavaScript, HTML/CSS.",
-        url: "https://blissful-benz-0629cb.netlify.com/",
-        gitHub: "https://github.com/giacomo9999/3D-Tic-Tac-Toe-190316"
-      },
+      // {
+      //   name: "Cubical Tic-Tac-Toe (n x n x n)",
+      //   description:
+      //     "Play tic-tac-toe on a 3D grid of any size you like (within reason, of course.)",
+      //   stack: "JavaScript, HTML/CSS.",
+      //   url: "https://blissful-benz-0629cb.netlify.com/",
+      //   gitHub: "https://github.com/giacomo9999/3D-Tic-Tac-Toe-190316"
+      // },
       {
         name: "NYC Baby Name Scrutinizer",
         description:
