@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 import ContactForm from "./ContactForm";
-import Resume from "./J_Gary_CV_190430.pdf";
+import Resume from "./J_Gary_CV_200325.pdf";
 
 class About extends Component {
   state = { emailPanelOpen: false };
